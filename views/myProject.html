@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project</title>
+    <link rel="icon" href="/public/images/favicon.ico">
+    <link rel="stylesheet" href="/public/CSS/style.css" />
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+      <!-- End font family -->
+  </head>
+  <body>
+    <!----------- NAVBAR ------------>
+    <nav class="navbar navbar-expand-lg bg-light-subtle fixed-top">
+      <div class="container">
+        <img src="/public/images/logo.png" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link ms-3 text-black fw-medium" aria-current="page" href="/">Home</a>
+            </li>
+            {{if .IsLoggins}}
+            <li class="nav-item ms-3"><a class="nav-link active text-black fw-bold" id="active" href="/project">Add Project</a></li>
+            {{end}}
+            <li class="nav-item ms-3">
+              <a class="nav-link text-black" href="/contact" id="hidden">Contact Me</a>
+            </li>
+          </ul>
+          <div class="ms-auto me-lg-3">
+            {{if not .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-login">Login</a>
+              </li>
+            </ul>
+            {{end}} {{if .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Hello, {{.FlashName}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+              </li>
+            </ul>
+            {{end}}
+          </div>
+          <button class="btn btn-danger fw-bold" id="submit-color" type="submit">
+            <a class="text-decoration-none text-white" href="/contact">Contact Me</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!----------- END NAVBAR ------------>
+
+    <!----------- PROJECT --------------->
+    <div id="form-container" class="container mb-5">
+      <h3 class="text-center fw-bold mb-5">ADD MY PROJECT</h3>
+      <form action="/add-project" enctype="multipart/form-data" method="POST" class="w-50 m-auto">
+        <!-- project name -->
+        <div class="mb-3">
+          <label for="project-name" class="form-label fw-bold">Project Name</label>
+          <input class="form-control" type="text" id="project-name" name="project-name"
+            placeholder="Enter your project here" required/>
+        </div>
+        <!-- end project name -->
+
+        <!-- end project date -->
+        <div id="project-date-container" class="mb-3 d-flex justify-content-center">
+          <div class="mb-3 w-50">
+            <label for="start-date" class="form-label fw-bold">Start Date</label>
+            <input type="date" id="start-date" class="form-control" name="start-date" required/>
+          </div>
+          <div class="mb-3 w-50">
+            <label for="end-date" class="form-label fw-bold">End Date</label>
+            <input type="date" id="end-date" class="form-control" name="end-date" required/>
+          </div>
+        </div>
+        <!-- end project date -->
+
+        <!-- description -->
+        <div class="mb-3">
+          <label for="description" class="form-label fw-bold">Description</label>
+          <textarea class="form-control" id="description" aria-describedby="description" style="height: 200px; resize: none" placeholder="enter your description here, in the form of an explanation of the website you have created." name="description" required></textarea>
+        </div>
+        <!-- end description -->
+
+        <!-- technologies -->
+
+        <label class="mb-3 fw-bold">Technologies</label>
+        <div class="d-flex">
+          <div class="techno1 w-50">
+            <div class="mb-3 form-check">
+              <input id="technology-4" value="python" type="checkbox" class="form-check-input" name="check"/>
+              <label class="form-check-label fw-semibold" style="color: #434242">Python</label>
+            </div>
+            <div class="mb-3 form-check">
+              <input id="technology-3" value="js" type="checkbox" class="form-check-input" name="check"/>
+              <label class="form-check-label fw-semibold" style="color: #434242">Javascript</label>
+            </div>
+          </div>
+            <div class="techno2 w-50">
+              <div class="mb-3 form-check">
+                <input id="technology-2" value="react" type="checkbox" class="form-check-input" name="check"/>
+                <label class="form-check-label fw-semibold" style="color: #434242">React</label>
+              </div>
+              <div class="mb-3 form-check">
+                <input id="technology-1" value="node" type="checkbox" class="form-check-input" name="check"/>
+                <label class="form-check-label fw-semibold" style="color: #434242">Node.JS</label>
+              </div>
+            </div>
+        </div>
+        <!-- end technologies -->
+
+        <!-- upload image -->
+        <div id="upload-image-container" class="mb-3">
+          <label class="form-label" for="inputGroupFile01">Upload</label>
+          <input type="file" id="upload-image" class="form-control" name="uploadImage" required/>
+          <i class="fa-solid fa-paperclip fa-lg"></i>
+        </div>
+        <!-- end upload image -->
+
+        <!-- submit -->
+        <div id="submit-button-container" class="d-flex justify-content-end mt-5">
+          <button class="btn btn-primary" id="submit-button" type="submit">submit</button>
+        </div>
+        <!-- end submit -->
+      </form>
+    </div>
+
+    <!-- END PROJECT -->
+
+    <!-- Javascript -->
+    <script src="/public/js/myProject.js"></script>
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+    <!-- END Javascript -->
+  </body>
+</html>

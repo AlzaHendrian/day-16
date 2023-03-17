@@ -1,0 +1,210 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+}
+body {
+  background-color: #EEEEEE !important;
+}
+
+/* button navbar contact-me, button form my-project, button form contact */
+#submit-button {
+  background-color: #03001C;
+  border: none;
+}
+
+#submit-button:hover {
+  background-color: #16213E;
+  opacity: 0.9;
+  transition: 0.5s;
+}
+
+/* navbar */
+#hidden {
+  display: none;
+}
+
+#submit-color {
+  background-color: #03001C;
+  border: none;
+}
+
+/* Index */
+#content {
+  margin-top: 6em !important;
+}
+
+#img-content {
+  box-shadow: 4px 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+#img-content img {
+  height: 380px;
+}
+
+#project-list > div {
+  display: flex;
+  width: 100%;
+  margin: auto;
+}
+
+#projects-container {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr !important;
+  width: 100%;
+  margin: 0 auto;
+}
+#project-container {
+  width: 95% !important;
+  background-color: #ffffff;
+  box-shadow: 0 5px 5px rgba(29, 29, 29, 0.25);
+  border-radius: 10px;
+  margin: 1rem auto !important;
+  justify-content: start;
+}
+#contact .contact-cv {
+  background-color: #16213E;
+}
+#project-container p {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 15px;
+}
+
+/* ADD PROJECT */
+#form-container {
+  margin-top: 8em;
+}
+.techno2 {
+  margin-left: -7em;
+}
+
+/* FORM CONTACT ME */
+.form-contact {
+  margin-top: 8em;
+}
+
+@media (max-width: 1024px) {
+  /* NAVBAR */
+  .navbar-collapse {
+    text-align: center;
+  }
+  ul.navbar-nav {
+    margin-right: 16px !important;
+    margin-left: 0 !important;
+  }
+  #submit-color {
+    display: none;
+  }
+  #hidden {
+    display: block;
+  }
+   #active, .active {
+    background-color: #16213E;
+    color: white !important;
+    width: 35% !important;
+    margin: auto !important;
+    padding: 6px 0;
+    border-radius: 5px;
+  }
+
+  /* Index */
+  #flex-box {
+    flex-direction: column;
+  }
+  #content {
+    width: 100% !important;
+    border-radius: 0 !important;
+  }
+  #content-title {
+    font-size: 4em;
+    margin-bottom: 20px !important;
+  }
+  #contact {
+    margin-top: -10px !important;
+    margin-bottom: 4em !important;
+  }
+  
+  .icon {
+    font-size: 3em !important;
+    letter-spacing: 14px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 0.5em;
+    margin: 0 auto 3rem !important;
+  }
+  .icon i {
+    margin: 1rem 0 !important;
+  }
+  h3.social-media {
+    display: flex !important;
+    letter-spacing: 0;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    font-weight: 600;
+    color: black;
+  }
+  i.text-dark:hover {
+    color: orangered !important;
+  }
+  #img-content {
+    width: 70% !important;
+  }
+  #img-content img {
+  height: auto;
+}
+
+  /* My Project in Index */
+  #project-container {
+    width: 90% !important;
+    margin: 1em auto !important;
+  }
+  #projects-container {
+    display: block !important;
+  }
+
+  /* ADD MY PROJECT */
+  #form-container{
+    margin-top: 7em;
+    margin-bottom: 7em;
+  }
+  #form-container form {
+    width: 90% !important;
+  }
+  .techno2 {
+    margin-left: -5em;
+  }
+
+  /* FORM CONTACT ME */
+  .form-contact {
+    margin-top: 7em;
+    margin-bottom: 7em;
+  }
+  .form-contact #form {
+    width: 90% !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .icon {
+    font-size: 2.5rem !important;
+    margin-bottom: 1.5em;
+    letter-spacing: normal;
+  }
+
+  #img-content {
+    width: 90% !important;
+  }
+}
+@media (max-width: 420px){
+  #contact {
+    align-items: center !important;
+  }
+  #contact a {
+    font-size: 16px !important;
+  }
+  h1#content-title {
+    font-size: 26px !important;
+  }
+}

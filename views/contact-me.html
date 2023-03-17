@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Contact</title>
+    <link rel="icon" href="/public/images/favicon.ico">
+    <link rel="stylesheet" href="/public/CSS/style.css" />
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+      <!-- End font family -->
+  </head>
+
+  <body>
+    <!----------- NAVBAR ------------>
+    <nav class="navbar navbar-expand-lg bg-light-subtle fixed-top">
+      <div class="container">
+        <img src="/public/images/logo.png" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0 fw-bold">
+            <li class="nav-item">
+              <a class="nav-link ms-3" aria-current="page" href="/">Home</a>
+            </li>
+            {{if .IsLoggins}}
+            <li class="nav-item"><a class="nav-link ms-3 text-black" href="/project">Add Project</a></li>
+            {{end}}
+            <li class="nav-item ms-3">
+              <a class="nav-link active" href="/contact" id="hidden">Contact Me</a>
+            </li>
+          </ul>
+          <div class="ms-auto me-lg-3">
+            {{if not .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-login">Login</a>
+              </li>
+            </ul>
+            {{end}} {{if .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Hello, {{.FlashName}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+              </li>
+            </ul>
+            {{end}}
+          </div>
+          <button class="btn btn-danger fw-bold" id="submit-color" type="submit">
+            <a class="text-decoration-none text-white" href="/contact">Contact Me</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!----------- END NAVBAR ------------>
+
+    <!------------- FORM ----------------->
+
+    <div class="form-contact container mb-5">
+        <h3 class="text-center fw-bold mb-5">GET IN TOUCH</h3>
+        <form id="form" onsubmit="getData(event)" class="w-50 m-auto">
+          <!-- name -->
+          <div class="input mb-3">
+            <label for="name" class="form-label fw-bold">Name</label>
+            <input class="form-control" type="text" id="name" placeholder="Input Your Name"/>
+          </div>
+          <!-- end name -->
+
+          <!-- email -->
+          <div class="input mb-3">
+            <label for="email" class="form-label fw-bold">Email</label>
+            <input class="form-control" type="email" id="email" placeholder="Input Your Email"/>
+          </div>
+          <!-- end email -->
+
+          <!-- phone number -->
+          <div class="input mb-3">
+            <label for="telp" class="form-label fw-bold">Phone Number</label>
+            <input class="form-control" type="number" id="telp" placeholder="Type Your Phone Number"/>
+          </div>
+          <!-- end phone number -->
+
+          <!-- select menu -->
+          <div class="input mb-3">
+            <label for="subject" class="form-label fw-bold">Subject</label>
+            <select class="form-select" name="subject" id="subject">
+              <option selected>Open this select menu</option>
+                Select an Option
+              </option>
+              <option value="none">Frontend</option>
+              <option value="none">Backend</option>
+              <option value="none">Fullstack</option>
+              <option value="none">Mobile App</option>
+            </select>
+          </div>
+          <!-- end select menu -->
+
+          <!-- message -->
+          <div class="input mb-3">
+            <label for="message" class="form-label fw-bold">Your Message</label>
+            <textarea class="form-control" name="text" aria-describedby="message" id="message" style="height: 200px; resize: none;" placeholder="Type your message"></textarea>
+          </div>
+          <!-- end message -->
+
+          <!-- button -->
+          <div class="form-button d-flex justify-content-end mt-5">
+            <button class="btn btn-primary" id="submit-button" type="submit">Submit</button>
+          </div>
+          <!-- end button -->
+        </form>
+    </div>
+    <!-------------------- END FORM --------------------->
+
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/public/js/contactMe.js"></script>
+  </body>
+</html>

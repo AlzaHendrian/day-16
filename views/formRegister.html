@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form-register</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/CSS/style.css" />
+    <!-- End CSS -->
+    <!-- End bootstrap CSS -->
+    <link rel="stylesheet" href="/public/bootstrap/CSS/bootstrap.min.css" />
+    <!-- End bootstrap CSS -->
+
+    <!-- icon Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <!-- End Icon Style -->
+    
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+      <!-- End font family -->
+</head>
+<body>
+        <!----------- NAVBAR ------------>
+    <nav class="navbar navbar-expand-lg bg-light-subtle fixed-top">
+        <div class="container">
+            <img src="/public/images/logo.png" />
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-black fw-bold" id="active" aria-current="page" href="/">
+                            Home
+                        </a>
+                    </li>
+                    {{if .IsLoggins}}
+                    <li class="nav-item"><a class="nav-link ms-3 text-black" href="/project">Add Project</a></li>
+                    {{end}}
+                    <li class="nav-item ms-3">
+                        <a class="nav-link text-black" href="/contact" id="hidden">Contact Me</a>
+                    </li>
+                </ul>
+                <div>
+                    <button class="btn btn-danger fw-bold" id="submit-color" type="submit">
+                        <a class="text-decoration-none text-white" href="/contact">Contact Me</a>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+        <!----------- END NAVBAR ------------>
+    
+    <!-- Alert -->
+    {{if .FlashMessage}} {{if not .FlashStatus}}
+    <div class="container alert alert-warning" role="alert">{{.FlashMessage}}</div>
+    {{end}} {{end}}
+    <!-- Alert End -->
+    
+    <div class="bg-body-secondary d-flex flex-column justify-content-center align-items-center py-5 full-height">
+        <h1 class="fw-bold text-center py-5">REGISTER YOUR ACCOUNT</h1>
+        <form action="/register" method="post" class="col-11 col-lg-5 needs-validation" novalidate>
+          <div class="mb-4">
+            <label for="name" class="form-label fw-semibold mb-0">Name</label>
+            <input type="text" name="name" class="form-control shadow" id="name" aria-describedby="name" placeholder="Jarl Balgruuf the Greater" required>
+            <div class="invalid-feedback">
+              Please fill in the Name field.
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="email" class="form-label fw-semibold mb-0">Email</label>
+            <input type="email" name="email" class="form-control shadow" id="email" aria-describedby="email" placeholder="balgruuf@gmail.com" required>
+            <div class="invalid-feedback">
+              Please fill in the Email field.
+            </div>
+          </div>
+          <div class="mb-4">
+            <label for="password" class="form-label fw-semibold mb-0">Password</label>
+            <input type="password" name="password" class="form-control shadow" id="password" aria-describedby="password" placeholder="balgruuf123" required>
+            <div class="invalid-feedback">
+              Please fill in the Password field.
+            </div>
+          </div>
+          <div class="d-flex justify-content-end mt-5">
+            <button type="submit" class="btn btn-dark btn-bg-primary-custom-hover px-5 rounded-pill py-1 fw-semibold">submit</button>
+          </div>
+        </form>
+      </div>
+
+      <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

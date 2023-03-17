@@ -1,0 +1,48 @@
+Authentication = proses indentifikasi user ketika mengakses sebuah website.
+Session(sesi) = sekumpulan informasi ketika user sudah login/belum.
+Encryption = mengubah pesan asli dengan hasil pesan acak. ini digunakan untuk pasword
+
+
+Auth
+1. Registrasi -> email & password (encryption)
+email : gendi@mail.com
+password : diayangselalutersakiti 
+password : diayangselalutersakiti 
+
+email : gendi@mail.com
+password : "71cb84430d43fbc=76033a42b7f5b1a5d"
+password : "71cb84430d43fbc=76033a42b7f5b1a5d"
+
+2. email & password -> database
+3. login
+- mendapatkan data email & password 
+- compare email dari inputan dengan database 
+
+Password: "password"
+Salt: "2F6#1$8g"
+Hasil gabungan password dan salt: "password2F6#1$8g"
+Hasil hash: "71cb84430d43fbc76033a42b7f5b1a5d"
+
+add register -> exec -> exec ->
+
+
+id type data serial berguna untuk auto increment maksudnya dia akan menambahkan data sendiri ketika ada data baru
+
+cookies => sekumpulan informasi yg ada didalam halaman website
+NewCookiesStore => untuk menyimpan sebuah informasi sesi kita dari aplikasi tersebut supaya memiliki jangka waktu.
+query dari queryRow => hanya mendapatkan satu baris data di dalam database
+
+cara melakukan relasi tabel
+LEFT JOIN => memunculkan data dari tabel 1 berikut dengan tabel kanan
+RIGHT JOIN
+INNER JOIN
+FULL JOIN
+
+Jenis tabel
+one to one => tabel hanya memiliki 1 relasi atau 1:1
+one to many => 1 tabel bisa banyak relasi atau 1 banding banyak
+many to many => banyak tabel banyak relasi
+
+Forenkey kuki dari tabel lain yang dipanggil kedalam sebuah tabel
+
+

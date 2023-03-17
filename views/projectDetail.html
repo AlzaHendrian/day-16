@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Detail | Project-1 Mobile App 2019</title>
+    <link rel="stylesheet" href="/public/CSS/projectDetails.css" />
+    <link rel="stylesheet" href="/public/CSS/style.css" />
+    <link rel="icon" href="/public/images/favicon.ico">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css" />
+    <!-- End bootstrap CSS -->
+    <!-- icon Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <!-- End Icon Style -->
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+      <!-- End font family -->
+  </head>
+  <body>
+    <!----------- NAVBAR ------------>
+    <nav class="navbar navbar-expand-lg bg-light-subtle fixed-top">
+      <div class="container">
+        <img src="/public/images/logo.png" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+            <li class="nav-item ms-3">
+              <a class="nav-link text-black" id="active" aria-current="page" href="/">
+                Home
+              </a>
+            </li>
+            {{if .IsLoggins}}
+            <li class="nav-item"><a class="nav-link ms-3 text-black" href="/project">Add Project</a></li>
+            {{end}}
+            <li class="nav-item ms-3">
+              <a class="nav-link text-black" href="/contact" id="hidden">Contact Me</a>
+            </li>
+          </ul>
+          <div class="ms-auto me-lg-3">
+            {{if not .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-login">Login</a>
+              </li>
+            </ul>
+            {{end}} {{if .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Hello, {{.FlashName}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+              </li>
+            </ul>
+            {{end}}
+          </div>
+          <button class="btn btn-danger fw-bold" id="submit-color" type="submit">
+            <a class="text-decoration-none text-white" href="/contact">Contact Me</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!----------- END NAVBAR ------------>
+    <div id="project-details-container">
+      <h1>{{.Projects.Title}}</h1>
+      <div id="project-data">
+        <img src="/public/images/MobileApp1.jpg" />
+        <div>
+          <div class="project-data-title">Duration</div>
+          <div class="project-data-item">
+            <i class="fa-solid fa-calendar-days fa-2x"></i>
+            {{.StartD}} - {{.EndD}}
+          </div>
+          <div class="project-data-item">
+            <i class="fa-solid fa-clock fa-2x"></i>
+            {{ .Duration }}
+          </div>
+          <div class="project-data-title">Technologies</div>
+          <div class="project-data-item d-flex flex-wrap justify-content-between">
+            {{range $index, $data := .Projects.Technologys}}
+            <div class="d-flex align-items-center mb-3 col-6">
+              <i class="fa-brands fa-{{$data}} fa-3x me-2" style="color: black;"></i>
+              {{$data}}
+            </div>
+            {{end}}
+          </div>
+        </div>
+      </div>
+      <div style="line-height: 1.6;">
+        <p>
+          {{.Projects.Descript}}
+          </p>
+          <p>
+          {{.Projects.Descript}}
+          </p>
+          <p>
+          {{.Projects.Descript}}
+          </p>
+      </div>
+    </div>
+
+    <!-- Javascript -->
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+    <!-- END Javascript -->
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alza Hendrian || Personal Webiste</title>
+    <link rel="icon" href="/public/images/favicon.ico">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/public/CSS/style.css" />
+    <!-- End CSS -->
+
+    <!-- End bootstrap CSS -->
+    <link rel="stylesheet" href="/public/bootstrap/CSS/bootstrap.min.css" />
+    <!-- End bootstrap CSS -->
+
+    <!-- icon Style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+    <!-- End Icon Style -->
+    
+    <!-- Font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+      <!-- End font family -->
+
+  </head>
+  <body>
+    <!----------- NAVBAR ------------>
+    <nav class="navbar navbar-expand-lg bg-light-subtle fixed-top">
+      <div class="container">
+        <img src="/public/images/logo.png" />
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto ms-5 mb-2 mb-lg-0">
+            <li class="nav-item ms-3">
+              <a class="nav-link text-black fw-bold" id="active" aria-current="page" href="/">
+                Home
+              </a>
+            </li>
+            {{if .IsLoggins}}
+            <li class="nav-item"><a class="nav-link ms-3 text-black" href="/project">Add Project</a></li>
+            {{end}}
+            <li class="nav-item ms-3">
+              <a class="nav-link text-black" href="/contact" id="hidden">Contact Me</a> 
+            </li>
+          </ul>
+          <div class="ms-auto me-lg-3">
+            {{if not .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-register">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/form-login">Login</a>
+              </li>
+            </ul>
+            {{end}} {{if .IsLoggins}}
+            <ul class="navbar-nav fw-bold text-center">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Hello, {{.FlashName}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/logout">Logout</a>
+              </li>
+            </ul>
+            {{end}}
+          </div>
+          <button class="btn btn-danger fw-bold" id="submit-color" type="submit">
+            <a class="text-decoration-none text-white" href="/contact">Contact Me</a>
+          </button>
+        </div>
+      </div>
+    </nav>
+    <!----------- END NAVBAR ------------>
+    <!-- Alert Success Registered -->
+    {{if .FlashMessage}} {{if .FlashStatus}}
+    <div class="container alert alert-success" role="alert">{{.FlashMessage}}</div>
+    {{end}} {{end}}
+    <!-- Alert Success Registered End -->
+
+    <!-- Alert Not Success Registered -->
+    {{if .FlashMessage}} {{if not .FlashStatus}}
+    <div class="container alert alert-warning" role="alert">{{.FlashMessage}}</div>
+    {{end}} {{end}}
+    <!-- Alert Not Success Registered End -->
+
+    <!----------- CONTENT ------------>
+    <div id="content" class="container bg-light-subtle mt-5 mb-5 m-auto p-5 rounded-3 shadow">
+      <div id="flex-box" class="d-flex">
+        
+        <!-- Judul & Description -->
+        <div class="w-100 p-0 m-auto me-5">
+          <h1 id="content-title" class="mb-3 w-100 pb-2 fw-bolder">Welcome to my Hut <br>{{.FlashName}}</h1>
+          <p style="text-align: justify">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo nulla
+            illo perferendis reprehenderit corporis quidem ducimus, facilis a
+            necessitatibus porro, nesciunt, ullam molestias culpa modi! Sint
+            culpa minus animi architecto. Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Unde aut cupiditate eaque aliquid eveniet
+            repudiandae error dicta laborum ad quam, eius natus sit dignissimos,
+            vero exercitationem dolorem aperiam libero! Porro?
+          </p>
+
+          <!-- contact person & CV -->
+          <div id="contact" class="contact d-flex w-100 mb-3 mt-5 pt-2">
+            <a class="contact-cv pe-4 ps-4 p-1 text-decoration-none rounded-5 text-white text-center" href="https://bit.ly/3m2rCZ7">contact</a>
+            <a class="img-cv text-decoration-none ms-3 text-black fs-5" href="/public/images/CV Alza Hendrian.pdf">download CV<i class="fa-sharp fa-solid fa-circle-down ms-2"></i></a>
+          </div>
+
+          <!-- social media -->
+          <div class="icon mt-5" style="font-size: 3em">
+            <h3 class="social-media d-none">Social Media</h3>
+            <a href="https://www.linkedin.com/in/alza-hendrian/" class="me-3"><i class="fa-brands fa-linkedin text-black"></i></a>
+            <a href="https://github.com/AlzaHendrian" class="me-3"><i class="fa-brands fa-github text-black"></i></a>
+            <a href="https://www.facebook.com/AljaHendryann/" class="me-3"><i class="fa-brands fa-facebook text-black"></i></a>
+            <a href="https://www.instagram.com/aljhndryn/" class="me-3"><i class="fa-brands fa-square-instagram text-black"></i></a>
+          </div>
+        </div>
+
+        <!-- home picture -->
+        <div id="img-content" class="w-50 m-auto bg-light-subtle p-0 rounded-3 md:flex-column">
+          <img src="/public/images/Alza Hendrian.jpeg" class="img-fluid rounded-top-3 w-100"/>
+          <div class="text-center pb-0 d-flex flex-column">
+            <h4 class="mt-3 fw-bold">Alza Hendrian</h4>
+            <p style="margin-top: -8px;">Fullstack Developer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Details -->
+
+    <div id="project-list" class="container-fluid bg-light-subtle mb-5 pt-5 pb-5">
+      <h1 class="text-center fw-bold">MY PROJECT</h1>
+      <div id="projects-container" class="row mt-5">
+        <!-- grid 1 -->
+        {{range $index, $data := .Projects}}
+        <div id="project-container" class="col-lg-3 col-sm-4 bg-light-subtle me-5 shadow ps-1 pe-1 p-2 rounded-1" style="width: 30%">
+          <img src="/uploads/{{$data.Image}}" class="img-fluid rounded p-2" style="margin: -5px auto 0; height: 350px; width: 100%;"/>
+          <div class="ps-2 me-1 text-start">
+            <a href="/project-detail/{{$data.Id}}" target="_blank" class="text-decoration-none text-black">
+              <h3 class="mt-2">{{$data.Title}}</h3>
+            </a>
+            <p style="margin-top: -5px;">{{$data.Duration}}</p>
+            <p class="mt-3">
+              {{$data.Descript}}
+            </p>
+            <!-- <div class="text-end me-3" style=" color: grey; font-weight: bold; font-size: small; ">- {{$data.Author}}</div> -->
+            <div class="pt-2 pb-4">
+              {{range $index, $data := $data.Technologys}}
+              <i class="fa-brands fa-{{$data}} fa-3x" style="color: black"></i>
+              {{end}}
+            </div>
+          </div>
+          <div class="p-2 d-flex">
+            <a href="/edit-project/{{$data.Id}}" style="text-decoration: none;" class="d-flex align-middle justify-content-center bg-dark text-white rounded-5 w-50">edit</a>
+            <a href="/delete/{{$data.Id}}" style="text-decoration: none;" class="d-flex align-middle justify-content-center bg-dark text-white rounded-5 w-50">delete</a>
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+
+    <!-- End Project Details -->
+
+    <!----------- END CONTENT ------------>
+    <script src="/public/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
